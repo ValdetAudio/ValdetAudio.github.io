@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Studio Väldet - Your music is my passion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0d0d;
+    --bg2: #141414;
+    --bg3: #1c1c1c;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: #ffffff2e;
+    --text: #f0ede6;
+    --muted: #b3b2b2;
+    --accent: #ffffff;
+    --accent2: #fcf8f8;
+    --serif: 'Inter', serif;
+    --sans: 'Inter', sans-serif;
+    --mono: 'Inter', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .project-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(13,13,13,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-noise {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 200px;
+    pointer-events: none;
+  }
+  .hero-waveform {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 220px;
+    opacity: 0.8;
+  }
+  .hero-tag {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 1.0;
+    font-weight: 400;
+    max-width: 900px;
+    margin-bottom: 2rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    background: var(--accent);
+    color: #0d0d0d;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .hero-cta:hover { background: #0ce7f77b; transform: translateY(-2px); }
+  .hero-scroll {
+    position: absolute; bottom: 2rem; right: 3rem;
+    font-family: var(--mono); font-size: 0.7rem;
+    color: var(--muted); letter-spacing: 0.15em;
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 3rem; }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+  }
+
+  /* SERVICES */
+  #services { background: var(--bg2); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+  }
+  .service-card {
+    padding: 2rem 1.75rem;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .service-card:last-child { border-right: none; }
+  .service-card:hover { background: var(--bg3); }
+  .service-icon {
+    width: 40px; height: 40px;
+    margin-bottom: 1.25rem;
+    color: var(--accent);
+  }
+  .service-card h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+  .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+  /* PORTFOLIO */
+  #portfolio { background: var(--bg); }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .project-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
+  .project-cover {
+    height: 180px;
+    background: var(--bg3);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .project-cover-waveform { opacity: 0.25; width: 90%; }
+  .project-cover-tag {
+    position: absolute; top: 1rem; left: 1rem;
+    font-family: var(--serif); font-size: 0.65rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    background: rgba(7, 166, 124, 0.15);
+    color: var(--accent);
+    padding: 0.3rem 0.6rem;
+    border: 1px solid rgba(200,245,66,0.3);
+  }
+  .project-body { padding: 1.25rem 1.5rem 1.5rem; }
+  .project-body h3 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+  }
+  .project-client {
+    font-size: 1rem; color: var(--muted);
+    font-family: var(--serif);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+  .project-desc { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; }
+
+  /* AUDIO PLAYER */
+  .audio-player {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+  }
+  .play-btn {
+    width: 32px; height: 32px; min-width: 32px;
+    background: var(--accent);
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+  .play-btn:hover { background: #0ce7f77b; }
+  .play-btn svg { width: 12px; height: 12px; fill: #0d0d0d; }
+  .player-waveform {
+    flex: 1; height: 32px; cursor: pointer; position: relative;
+  }
+  .player-waveform canvas { width: 100%; height: 100%; display: block; }
+  .player-time {
+    font-family: var(--mono); font-size: 0.7rem;
+    color: var(--muted); letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+  audio { display: none; }
+
+  /* PROJECT LINKS */
+  .project-links { display: flex; gap: 0.5rem; margin-top: 1rem; }
+  .project-link {
+    font-family: var(--serif); font-size: 0.7rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.75rem;
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .project-link:hover { color: var(--accent); border-color: #0ce7f766; }
+
+/* Prices */
+  #prices { background: var(--bg2); }
+  .prices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+  }
+  .prices-card {
+    padding: 2rem 1.75rem;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .prices-card:last-child { border-right: none; }
+  .prices-card:hover { background: var(--bg3); }
+  .prices-icon {
+    width: 40px; height: 40px;
+    margin-bottom: 1.25rem;
+    color: var(--accent);
+  }
+  .prices-card h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+  .prices-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+  /* ABOUT */
+  #about { background: var(--bg2); }
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 0.95rem; }
+  .about-text p:first-of-type { color: var(--text); font-size: 1.05rem; }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+  .stat {
+    padding: 1.25rem;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    color: var(--accent);
+    line-height: 1;
+    display: block;
+  }
+  .stat-label { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; }
+  .skills-list { list-style: none; }
+  .skills-list li {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  .skills-list li:last-child { border-bottom: none; }
+  .skill-level {
+    display: flex; gap: 4px;
+  }
+  .skill-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border-hover);
+  }
+  .skill-dot.filled { background: var(--accent); }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--bg); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .testimonial {
+    padding: 2rem;
+    border: 1px solid var(--border);
+    background: var(--bg2);
+  }
+  .testimonial blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .testimonial-author {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .author-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--bg3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 0.7rem;
+    color: var(--accent);
+    border: 1px solid #0ce7f77b;
+    flex-shrink: 0;
+  }
+  .author-name { font-size: 0.85rem; font-weight: 500; }
+  .author-role { font-size: 0.75rem; color: var(--muted); }
+
+  /* CONTACT */
+  #contact { background: var(--bg2); }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .contact-info p { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+  .contact-item {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  .contact-item a { color: var(--text); text-decoration: none; }
+  .contact-item a:hover { color: var(--accent); }
+  .contact-icon {
+    width: 20px; color: var(--accent); flex-shrink: 0;
+    font-size: 1rem;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label {
+    font-family: var(--mono); font-size: 0.7rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.75rem 1rem;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--accent); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-group select option { background: var(--bg3); }
+  .btn-submit {
+    background: var(--accent);
+    color: #252323;
+    border: none;
+    padding: 0.9rem 2rem;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-submit:hover { background: #0ce7f77b; transform: translateY(-2px); }
+  .form-success {
+    display: none;
+    padding: 1rem;
+    border: 1px solid #0ce7f77b;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-family: var(--mono);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 1rem; color: var(--muted);
+    font-family: var(--serif);
+  }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { color: var(--muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 0 1.5rem 4rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag  { animation: fadeUp 0.6s ease both; }
+  .hero h1   { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-sub  { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-cta  { animation: fadeUp 0.6s 0.3s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Your Name</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#prices">Prices</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-noise"></div>
+  <img src ="https://upload.wikimedia.org/wikipedia/commons/5/5f/Neve_2.JPG?_=20091230230555">
+  <p class="hero-tag"></p>
+  <h1>Studio Väldet - where  <em>your</em> music comes alive</h1>
+  <p class="hero-sub">Mixing, mastering and production for artists who care about how they sound. Based in Stockholm, working worldwide.</p>
+  <a class="hero-cta" href="#contact">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    Get in touch
+  </a>
+  <span class="hero-scroll" aria-hidden="true"></span>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label"></p>
+  <h2>Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 19V6l12-3v13M9 19c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12 0c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"/></svg>
+      <h3>Mixing</h3>
+      <p>Bringing your multi-track recordings to life. Balance, depth, clarity and emotion — every element in its place.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" aria-hidden="true"/></svg>
+      <h3>Mastering</h3>
+      <p>Final polish and loudness optimisation for streaming, vinyl, or CD. Consistent playback across all systems.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+      <h3>Recording</h3>
+      <p>Studio recording sessions with full technical support. Vocals, live instruments, podcasts and voice-over.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      <h3>Editing</h3>
+      <p>Professional editing of audio material such as drums, vocals, podcasts and much more. High quality and fast turnaround.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section id="prices">
+  <p class="section-label"></p>
+  <h2>Prices</h2>
+  <div class="prices-grid">
+    <div class="prices-card">
+      <svg class="prices-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 19V6l12-3v13M9 19c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12 0c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"/></svg>
+      <h3>Mixing</h3>
+      <p>Prices start at 100 USD per song - may vary depending on the complexity of the song.</p>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <p class="section-label"></p>
+  <h2>Recent work</h2>
+  <div class="portfolio-grid">
+
+    <!-- Project 1 -->
+    <article class="project-card">
+      <div class="project-cover">
+        <img src="https://f4.bcbits.com/img/a1600784349_10.jpg" viewBox="0 0 300 80" aria-hidden="true">
+          <polyline fill="none" stroke="#c8f542" stroke-width="1.2"
+            points="0,40 8,32 16,48 24,25 32,52 40,22 48,56 56,20 64,55 72,24 80,50 88,30 96,46 104,28 112,44 120,35 128,41 136,27 144,50 152,24 160,52 168,28 176,45 184,32 192,42 200,38 208,46 216,29 224,51 232,26 240,53 248,29 256,48 264,33 272,43 280,37 288,41 296,39 300,40"/>
+        <span class="project-cover-tag">Recording + Mix + Master</span>
+      </div>
+      <div class="project-body">
+        <h3>Album — "Sweetness Fades"</h3>
+        <p class="project-client">Artist: Merit</p>
+        <p class="project-desc">Full recording, mix and mastering for a 7-track mathcore/hardcore album. Heavy, dense and full of controlled noise.</p>
+        <div class="audio-player" data-src="https://meritnoise.bandcamp.com/track/evil">
+          <button class="play-btn" aria-label="Play preview">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </button>
+          <div class="player-waveform"><canvas></canvas></div>
+          <span class="player-time">0:00</span>
+          <audio preload="none"></audio>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://youtu.be/WsAUJA5Zu3k?si=lKZ9xoVhBYWrSTnM" target="_blank" rel="noopener">Youtube ↗</a>
+          <a class="project-link" href="https://meritnoise.bandcamp.com/album/sweetness-fades" target="_blank" rel="noopener">Bandcamp ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project-card">
+      <div class="project-cover">
+        <img src="https://f4.bcbits.com/img/a2334134401_10.jpg" viewBox="0 0 300 80" aria-hidden="true">
+          <polyline fill="none" stroke="#c8f542" stroke-width="1.2"
+            points="0,40 6,18 12,60 18,15 24,58 30,20 36,55 42,22 48,52 54,28 60,48 66,30 72,46 78,32 84,44 90,34 96,42 102,29 108,55 114,24 120,57 126,22 132,50 138,30 144,46 150,36 156,44 162,27 168,53 174,25 180,56 186,28 192,50 198,32 204,48 210,35 216,43 222,30 228,52 234,24 240,54 246,27 252,52 258,33 264,45 270,38 276,42 282,36 288,41 294,39 300,40"/>
+        <span class="project-cover-tag">Bass engineering/recording + Mastering</span>
+      </div>
+      <div class="project-body">
+        <h3>Album — "The Fragile Silence"</h3>
+        <p class="project-client">Artist: Together To The Stars</p>
+        <p class="project-desc">Album mastering for a 6-track blackgaze album. CD and streaming delivery versions.</p>
+        <div class="audio-player" data-src="">
+          <button class="play-btn" aria-label="Play preview">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </button>
+          <div class="player-waveform"><canvas></canvas></div>
+          <span class="player-time">0:00</span>
+          <audio preload="none"></audio>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://togethertothestars.bandcamp.com/album/the-fragile-silence" target="_blank" rel="noopener">Bandcamp ↗</a>
+          <a class="project-link" href="https://youtu.be/OPfa-B90Pp4?si=rEZOO1QRUlQLvMeO" target="_blank" rel="noopener">YouTube ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project-card">
+      <div class="project-cover">
+        <img src="https://f4.bcbits.com/img/a3642037848_10.jpg" viewBox="0 0 300 80" aria-hidden="true">
+          <polyline fill="none" stroke="#c8f542" stroke-width="1.2"
+            points="0,40 10,30 20,50 30,28 40,48 50,35 60,42 70,32 80,46 90,34 100,44 110,36 120,42 130,33 140,47 150,35 160,43 170,37 180,41 190,30 200,50 210,27 220,52 230,31 240,46 250,35 260,43 270,38 280,41 290,37 300,40"/>
+        <span class="project-cover-tag">Drum and bass engineering + Editing + Mastering</span>
+      </div>
+      <div class="project-body">
+        <h3>Album — "Iridescence"</h3>
+        <p class="project-client">Artist: Together To The Stars</p>
+        <p class="project-desc">Drum engineering, bass engineering, drum editing as well as album mastering for a 6-track blackgaze album. Vinyl and streaming delivery versions.</p>
+        <div class="audio-player" data-src="">
+          <button class="play-btn" aria-label="Play preview">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </button>
+          <div class="player-waveform"><canvas></canvas></div>
+          <span class="player-time">0:00</span>
+          <audio preload="none"></audio>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://togethertothestars.bandcamp.com/album/iridescence" target="_blank" rel="noopener">Bandcamp ↗</a>
+          <a class="project-link" href="https://youtu.be/-KuCegNxeY0?si=c-hf1oOZ9kBvG6Gp" target="_blank" rel="noopener">YouTube ↗</a>
+</div>
+      </div>
+    </article>
+     
+    <!-- Project 4 -->
+    <article class="project-card">
+      <div class="project-cover">
+        <img src="https://f4.bcbits.com/img/a1904314141_1x1_700.avif" viewBox="0 0 300 80" aria-hidden="true">
+          <polyline fill="none" stroke="#c8f542" stroke-width="1.2"
+            points="0,40 10,30 20,50 30,28 40,48 50,35 60,42 70,32 80,46 90,34 100,44 110,36 120,42 130,33 140,47 150,35 160,43 170,37 180,41 190,30 200,50 210,27 220,52 230,31 240,46 250,35 260,43 270,38 280,41 290,37 300,40"/>
+        <span class="project-cover-tag">Recording + Mix + Master</span>
+      </div>
+      <div class="project-body">
+        <h3>Single — "God's In His Heaven"</h3>
+        <p class="project-client">Artist: Merit</p>
+        <p class="project-desc">Full recording, mix and mastering for a mathcore/hardcore single.</p>
+        <div class="audio-player" data-src="">
+          <button class="play-btn" aria-label="Play preview">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </button>
+          <div class="player-waveform"><canvas></canvas></div>
+          <span class="player-time">0:00</span>
+          <audio preload="none"></audio>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://meritnoise.bandcamp.com/track/gods-in-his-heaven" target="_blank" rel="noopener">Bandcamp ↗</a>
+          <a class="project-link" href="-" target="_blank" rel="noopener">YouTube ↗</a>
+</div>
+      </div>
+    </article>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label"></p>
+  <h2>About me</h2>
+  <div class="about-inner">
+    <div class="about-text">
+      <p>I'm Sebastian Wellin, an audio engineer, producer and songwriter based in Stockholm with over 10 years of experience working across genres — from indie and jazz to extreme metal and hardcore punk.</p>
+      <p>I got my audio engineering degree with first class honors from SAE Institute Stockholm and Middlesex University.</p>
+      <p>My studio has a high quality, professional recording rig that is completely mobile, meaning I can come to you to record! The only requirement is electricity. 
+        Combined with Pro Tools, a great selection of microphones and a growing collection of outboard and plugins. Remote work is fully supported — I deliver stems, sessions and revisions via WeTransfer or Dropbox.</p>
+      <!-- <div class="about-stats">
+        <div class="stat"><span class="stat-num">80+</span><span class="stat-label">Tracks mixed</span></div>
+        <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Albums mastered</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">Years working</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Countries toured</span></div>
+      </div> -->
+    </div>
+    <div>
+      <ul class="skills-list">
+        <li>
+          Pro Tools
+          <span class="skill-level" aria-label="Expert">
+            <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span>
+          </span>
+        </li>
+        <li>
+          Logic Pro
+          <span class="skill-level" aria-label="Proficient">
+            <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span>
+          </span>
+        </li>
+        <li>
+          Mastering
+          <span class="skill-level" aria-label="Expert">
+            <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span>
+          </span>
+        </li>
+        <li>
+          Live sound
+          <span class="skill-level" aria-label="Proficient">
+            <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span><span class="skill-dot"></span>
+          </span>
+        </li>
+        <li>
+          Podcast editing and mixing
+          <span class="skill-level" aria-label="Proficient">
+            <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span>
+          </span>
+        </li>
+        <li>
+          Foley / sound design
+          <span class="skill-level" aria-label="Intermediate">
+            <span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span><span class="skill-dot"></span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<!-- <section id="testimonials">
+  <p class="section-label"></p>
+  <h2>Kind words</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <blockquote>"[Your Name] completely transformed my EP. I sent rough mixes with zero confidence and got back something that sounds better than records I've paid big studios for."</blockquote>
+      <div class="testimonial-author">
+        <div class="author-avatar">AK</div>
+        <div>
+          <p class="author-name">Anna Keller</p>
+          <p class="author-role">Artist — Glass Hours EP</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <blockquote>"Fast turnaround, excellent communication, and ears that just get what you're going for without you having to over-explain. Will keep coming back."</blockquote>
+      <div class="testimonial-author">
+        <div class="author-avatar">DS</div>
+        <div>
+          <p class="author-name">Daniel S.</p>
+          <p class="author-role">Producer — Drift//Signal</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <blockquote>"The vinyl master sounds incredible on the press. Managed to get great loudness without killing the dynamics — that's rare."</blockquote>
+      <div class="testimonial-author">
+        <div class="author-avatar">ML</div>
+        <div>
+          <p class="author-name">Maja L.</p>
+          <p class="author-role">The Pale Hours</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label"></p>
+  <h2>Get in touch</h2>
+  <div class="contact-inner">
+    <div class="contact-info">
+      <p>Tell me about your project and I'll get back to you within 24 hours with a quote or questions. All budgets considered.</p>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        <a href="mailto:wellinaudio@gmail.com">wellinaudio@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.14 9.93 19.79 19.79 0 01.07 1.34 2 2 0 012.06 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+        <a href="tel:+46700000000">+4676 338 16 63</a>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 2H3v16h5l4 4 4-4h5V2z"/></svg>
+        <a href="https://instagram.com" target="_blank" rel="noopener">@valdetstudio</a>
+      </div>
+    </div>
+
+    <!-- Form action points to Formspree — replace YOUR_FORM_ID -->
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service">Service</label>
+        <select id="service" name="service">
+          <option value="">— Select a service —</option>
+          <option value="mixing">Mixing</option>
+          <option value="mastering">Mastering</option>
+          <option value="mixing+mastering">Mixing + Mastering</option>
+          <option value="production">Production</option>
+          <option value="recording">Recording session</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me about your project — genre, number of tracks, deadlines, budget range..." required></textarea>
+      </div>
+      <button class="btn-submit" type="submit">Send message →</button>
+      <div class="form-success" id="form-success">Thanks — I'll be in touch soon!</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© <span id="year"></span> Website made by Sebastian Wellin. All rights reserved.</span>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="#home">Top</a>
+    <a href="#services">Services</a>
+    <a href="#prices">Prices</a>
+    <a href="#portfolio">Recent Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* Waveform canvas drawing */
+  function drawWaveform(canvas, color, seed) {
+    const ctx = canvas.getContext('2d');
+    const W = canvas.offsetWidth || 200;
+    const H = canvas.offsetHeight || 32;
+    canvas.width = W; canvas.height = H;
+    ctx.clearRect(0, 0, W, H);
+    const bars = Math.floor(W / 3);
+    const rng = (s) => { let x = Math.sin(s) * 43758.5453; return x - Math.floor(x); };
+    ctx.fillStyle = color;
+    for (let i = 0; i < bars; i++) {
+      const h = 4 + rng(seed + i * 7.3) * (H - 8);
+      const x = i * 3;
+      const y = (H - h) / 2;
+      ctx.globalAlpha = 0.35 + rng(seed + i * 3.1) * 0.65;
+      ctx.fillRect(x, y, 2, h);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  /* Init players */
+  document.querySelectorAll('.audio-player').forEach((player, idx) => {
+    const canvas = player.querySelector('canvas');
+    const btn = player.querySelector('.play-btn');
+    const timeEl = player.querySelector('.player-time');
+    const audio = player.querySelector('audio');
+    let playing = false;
+
+    setTimeout(() => drawWaveform(canvas, '#c8f542', idx * 99 + 1), 100);
+
+    btn.addEventListener('click', () => {
+      const src = player.dataset.src;
+      if (src && !audio.src) { audio.src = src; }
+      if (audio.src && audio.src !== window.location.href) {
+        playing ? audio.pause() : audio.play();
+        playing = !playing;
+      } else {
+        /* Demo: just toggle icon without real audio */
+        playing = !playing;
+      }
+      btn.querySelector('svg').innerHTML = playing
+        ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
+        : '<polygon points="5,3 19,12 5,21"/>';
+      if (!playing) btn.setAttribute('aria-label', 'Play preview');
+      else btn.setAttribute('aria-label', 'Pause preview');
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      const s = Math.floor(audio.currentTime);
+      timeEl.textContent = Math.floor(s/60) + ':' + String(s%60).padStart(2,'0');
+    });
+    audio.addEventListener('ended', () => {
+      playing = false;
+      btn.querySelector('svg').innerHTML = '<polygon points="5,3 19,12 5,21"/>';
+      timeEl.textContent = '0:00';
+    });
+  });
+
+  /* Contact form */
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      if (form.action.includes('YOUR_FORM_ID')) return; /* let demo submit fail gracefully */
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      }
+    });
+  }
+</script>
+</body>
+</html>
