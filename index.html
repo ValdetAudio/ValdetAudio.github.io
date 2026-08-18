@@ -4,15 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Studio Väldet - Your music is my passion</title>
-<meta name="description" content="Studio Väldet — Mixing, mastering and production based in Stockholm. Fast turnaround, professional equipment and remote delivery." />
-<link rel="icon" href="/favicon.ico" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-<meta property="og:title" content="Studio Väldet — Mixing &amp; Mastering" />
-<meta property="og:description" content="Mixing, mastering and production for artists who care about how they sound." />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -26,9 +20,9 @@
     --muted: #b3b2b2;
     --accent: #ffffff;
     --accent2: #fcf8f8;
-    --serif: 'DM Serif Display', serif;
-    --sans: 'Outfit', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    --mono: 'DM Mono', monospace;
+    --serif: 'Inter', serif;
+    --sans: 'Inter', sans-serif;
+    --mono: 'Inter', monospace;
   }
 
   html { scroll-behavior: smooth; }
@@ -43,11 +37,11 @@
   }
 
   .project-cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
   /* NAV */
   nav {
@@ -87,7 +81,7 @@
   }
   .hero-noise {
     position: absolute; inset: 0;
-    background-image: none; /* removed large inline SVG for correctness */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
     background-size: 200px;
     pointer-events: none;
   }
@@ -145,7 +139,7 @@
   }
 
   /* SECTIONS */
-  main section { padding: 6rem 3rem; }
+  section { padding: 6rem 3rem; }
   .section-label {
     font-family: var(--mono);
     font-size: 0.7rem;
@@ -252,7 +246,6 @@
     transition: background 0.15s;
     flex-shrink: 0;
   }
-  .play-btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
   .play-btn:hover { background: #0ce7f77b; }
   .play-btn svg { width: 12px; height: 12px; fill: #0d0d0d; }
   .player-waveform {
@@ -480,7 +473,7 @@
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero { padding: 0 1.5rem 4rem; }
-    main section { padding: 4rem 1.5rem; }
+    section { padding: 4rem 1.5rem; }
     .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .form-row { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
@@ -495,18 +488,13 @@
   .hero h1   { animation: fadeUp 0.6s 0.1s ease both; }
   .hero-sub  { animation: fadeUp 0.6s 0.2s ease both; }
   .hero-cta  { animation: fadeUp 0.6s 0.3s ease both; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-tag, .hero h1, .hero-sub, .hero-cta { animation: none !important; transition: none !important; }
-  }
 </style>
 </head>
 <body>
-<a class="skip-link" href="#main-content" style="position:absolute;left:-9999px;top:auto;">Skip to content</a>
 
 <!-- NAV -->
-<nav role="navigation" aria-label="Main navigation">
-  <a class="nav-logo" href="#">Studio Väldet</a>
+<nav>
+  <a class="nav-logo" href="#">Your Name</a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#portfolio">Work</a></li>
@@ -517,10 +505,10 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="home" role="region" aria-label="Hero">
-  <div class="hero-noise" aria-hidden="true"></div>
-  <img class="hero-image" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Neve_2.JPG" alt="Studio mixing console" loading="lazy" width="1600" height="900" style="width:100%;height:auto;object-fit:cover;display:block;">
-  <p class="hero-tag">Studio Väldet</p>
+<section class="hero" id="home">
+  <div class="hero-noise"></div>
+  <img src ="https://upload.wikimedia.org/wikipedia/commons/5/5f/Neve_2.JPG?_=20091230230555">
+  <p class="hero-tag"></p>
   <h1>Studio Väldet - where  <em>your</em> music comes alive</h1>
   <p class="hero-sub">Mixing, mastering and production for artists who care about how they sound. Based in Stockholm, working worldwide.</p>
   <a class="hero-cta" href="#contact">
@@ -530,30 +518,28 @@
   <span class="hero-scroll" aria-hidden="true"></span>
 </section>
 
-<main id="main-content">
-
 <!-- SERVICES -->
 <section id="services">
-  <p class="section-label">Services</p>
+  <p class="section-label"></p>
   <h2>Services</h2>
   <div class="services-grid">
     <div class="service-card">
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" role="img"><circle cx="12" cy="12" r="8"/></svg>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 19V6l12-3v13M9 19c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12 0c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"/></svg>
       <h3>Mixing</h3>
       <p>Bringing your multi-track recordings to life. Balance, depth, clarity and emotion — every element in its place.</p>
     </div>
     <div class="service-card">
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" role="img"><rect x="3" y="3" width="18" height="14" rx="2"/></svg>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" aria-hidden="true"/></svg>
       <h3>Mastering</h3>
       <p>Final polish and loudness optimisation for streaming, vinyl, or CD. Consistent playback across all systems.</p>
     </div>
     <div class="service-card">
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" role="img"><path d="M12 3v18"/></svg>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
       <h3>Recording</h3>
       <p>Studio recording sessions with full technical support. Vocals, live instruments, podcasts and voice-over.</p>
     </div>
     <div class="service-card">
-      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" role="img"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       <h3>Editing</h3>
       <p>Professional editing of audio material such as drums, vocals, podcasts and much more. High quality and fast turnaround.</p>
     </div>
@@ -562,27 +548,28 @@
 
 <!-- PRICES -->
 <section id="prices">
-  <p class="section-label">Prices</p>
+  <p class="section-label"></p>
   <h2>Prices</h2>
   <div class="prices-grid">
     <div class="prices-card">
-      <svg class="prices-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" role="img"><path d="M12 2v20"/></svg>
+      <svg class="prices-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 19V6l12-3v13M9 19c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12 0c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"/></svg>
       <h3>Mixing</h3>
-      <p>Prices start at 100 USD per song — may vary depending on the complexity of the song.</p>
-    </div>
+      <p>Prices start at 100 USD per song - may vary depending on the complexity of the song.</p>
   </div>
 </section>
 
 <!-- PORTFOLIO -->
 <section id="portfolio">
-  <p class="section-label">Recent work</p>
+  <p class="section-label"></p>
   <h2>Recent work</h2>
   <div class="portfolio-grid">
 
     <!-- Project 1 -->
     <article class="project-card">
       <div class="project-cover">
-        <img src="https://f4.bcbits.com/img/a1600784349_10.jpg" alt="Sweetness Fades album cover — Merit" loading="lazy" width="700" height="700">
+        <img src="https://f4.bcbits.com/img/a1600784349_10.jpg" viewBox="0 0 300 80" aria-hidden="true">
+          <polyline fill="none" stroke="#c8f542" stroke-width="1.2"
+            points="0,40 8,32 16,48 24,25 32,52 40,22 48,56 56,20 64,55 72,24 80,50 88,30 96,46 104,28 112,44 120,35 128,41 136,27 144,50 152,24 160,52 168,28 176,45 184,32 192,42 200,38 208,46 216,29 224,51 232,26 240,53 248,29 256,48 264,33 272,43 280,37 288,41 296,39 300,40"/>
         <span class="project-cover-tag">Recording + Mix + Master</span>
       </div>
       <div class="project-body">
@@ -607,7 +594,9 @@
     <!-- Project 2 -->
     <article class="project-card">
       <div class="project-cover">
-        <img src="https://f4.bcbits.com/img/a2334134401_10.jpg" alt="The Fragile Silence album cover" loading="lazy" width="700" height="700">
+        <img src="https://f4.bcbits.com/img/a2334134401_10.jpg" viewBox="0 0 300 80" aria-hidden="true">
+          <polyline fill="none" stroke="#c8f542" stroke-width="1.2"
+            points="0,40 6,18 12,60 18,15 24,58 30,20 36,55 42,22 48,52 54,28 60,48 66,30 72,46 78,32 84,44 90,34 96,42 102,29 108,55 114,24 120,57 126,22 132,50 138,30 144,46 150,36 156,44 162,27 168,53 174,25 180,56 186,28 192,50 198,32 204,48 210,35 216,43 222,30 228,52 234,24 240,54 246,27 252,52 258,33 264,45 270,38 276,42 282,36 288,41 294,39 300,40"/>
         <span class="project-cover-tag">Bass engineering/recording + Mastering</span>
       </div>
       <div class="project-body">
@@ -632,7 +621,9 @@
     <!-- Project 3 -->
     <article class="project-card">
       <div class="project-cover">
-        <img src="https://f4.bcbits.com/img/a3642037848_10.jpg" alt="Iridescence album cover" loading="lazy" width="700" height="700">
+        <img src="https://f4.bcbits.com/img/a3642037848_10.jpg" viewBox="0 0 300 80" aria-hidden="true">
+          <polyline fill="none" stroke="#c8f542" stroke-width="1.2"
+            points="0,40 10,30 20,50 30,28 40,48 50,35 60,42 70,32 80,46 90,34 100,44 110,36 120,42 130,33 140,47 150,35 160,43 170,37 180,41 190,30 200,50 210,27 220,52 230,31 240,46 250,35 260,43 270,38 280,41 290,37 300,40"/>
         <span class="project-cover-tag">Drum and bass engineering + Editing + Mastering</span>
       </div>
       <div class="project-body">
@@ -650,14 +641,16 @@
         <div class="project-links">
           <a class="project-link" href="https://togethertothestars.bandcamp.com/album/iridescence" target="_blank" rel="noopener">Bandcamp ↗</a>
           <a class="project-link" href="https://youtu.be/-KuCegNxeY0?si=c-hf1oOZ9kBvG6Gp" target="_blank" rel="noopener">YouTube ↗</a>
-        </div>
+</div>
       </div>
     </article>
      
     <!-- Project 4 -->
     <article class="project-card">
       <div class="project-cover">
-        <img src="https://f4.bcbits.com/img/a1904314141_1x1_700.avif" alt="God's In His Heaven single cover" loading="lazy" width="700" height="700">
+        <img src="https://f4.bcbits.com/img/a1904314141_1x1_700.avif" viewBox="0 0 300 80" aria-hidden="true">
+          <polyline fill="none" stroke="#c8f542" stroke-width="1.2"
+            points="0,40 10,30 20,50 30,28 40,48 50,35 60,42 70,32 80,46 90,34 100,44 110,36 120,42 130,33 140,47 150,35 160,43 170,37 180,41 190,30 200,50 210,27 220,52 230,31 240,46 250,35 260,43 270,38 280,41 290,37 300,40"/>
         <span class="project-cover-tag">Recording + Mix + Master</span>
       </div>
       <div class="project-body">
@@ -674,22 +667,29 @@
         </div>
         <div class="project-links">
           <a class="project-link" href="https://meritnoise.bandcamp.com/track/gods-in-his-heaven" target="_blank" rel="noopener">Bandcamp ↗</a>
-          <a class="project-link" href="#" target="_blank" rel="noopener">YouTube ↗</a>
-        </div>
+          <a class="project-link" href="-" target="_blank" rel="noopener">YouTube ↗</a>
+</div>
       </div>
     </article>
-  </div>
+    </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <p class="section-label">About</p>
+  <p class="section-label"></p>
   <h2>About me</h2>
   <div class="about-inner">
     <div class="about-text">
-      <p>I'm Sebastian Wellin, an audio engineer, producer and songwriter based in Stockholm with over 10 years of experience working across genres — from indie and jazz to extreme metal and hardcore.</p>
+      <p>I'm Sebastian Wellin, an audio engineer, producer and songwriter based in Stockholm with over 10 years of experience working across genres — from indie and jazz to extreme metal and hardcore punk.</p>
       <p>I got my audio engineering degree with first class honors from SAE Institute Stockholm and Middlesex University.</p>
-      <p>My studio has a high quality, professional recording rig that is completely mobile, meaning I can come to you to record. Remote work is fully supported — I deliver stems, sessions and revisions via WeTransfer or Dropbox.</p>
+      <p>My studio has a high quality, professional recording rig that is completely mobile, meaning I can come to you to record! The only requirement is electricity. 
+        Combined with Pro Tools, a great selection of microphones and a growing collection of outboard and plugins. Remote work is fully supported — I deliver stems, sessions and revisions via WeTransfer or Dropbox.</p>
+      <!-- <div class="about-stats">
+        <div class="stat"><span class="stat-num">80+</span><span class="stat-label">Tracks mixed</span></div>
+        <div class="stat"><span class="stat-num">12+</span><span class="stat-label">Albums mastered</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">Years working</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Countries toured</span></div>
+      </div> -->
     </div>
     <div>
       <ul class="skills-list">
@@ -734,20 +734,58 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<!-- <section id="testimonials">
+  <p class="section-label"></p>
+  <h2>Kind words</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <blockquote>"[Your Name] completely transformed my EP. I sent rough mixes with zero confidence and got back something that sounds better than records I've paid big studios for."</blockquote>
+      <div class="testimonial-author">
+        <div class="author-avatar">AK</div>
+        <div>
+          <p class="author-name">Anna Keller</p>
+          <p class="author-role">Artist — Glass Hours EP</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <blockquote>"Fast turnaround, excellent communication, and ears that just get what you're going for without you having to over-explain. Will keep coming back."</blockquote>
+      <div class="testimonial-author">
+        <div class="author-avatar">DS</div>
+        <div>
+          <p class="author-name">Daniel S.</p>
+          <p class="author-role">Producer — Drift//Signal</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <blockquote>"The vinyl master sounds incredible on the press. Managed to get great loudness without killing the dynamics — that's rare."</blockquote>
+      <div class="testimonial-author">
+        <div class="author-avatar">ML</div>
+        <div>
+          <p class="author-name">Maja L.</p>
+          <p class="author-role">The Pale Hours</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
 <!-- CONTACT -->
 <section id="contact">
-  <p class="section-label">Contact</p>
+  <p class="section-label"></p>
   <h2>Get in touch</h2>
   <div class="contact-inner">
     <div class="contact-info">
       <p>Tell me about your project and I'll get back to you within 24 hours with a quote or questions. All budgets considered.</p>
       <div class="contact-item">
-        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
         <a href="mailto:wellinaudio@gmail.com">wellinaudio@gmail.com</a>
       </div>
       <div class="contact-item">
-        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 2v6l6 6 6-6V2"/></svg>
-        <a href="tel:+46763381663">+46 76 338 16 63</a>
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.14 9.93 19.79 19.79 0 01.07 1.34 2 2 0 012.06 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+        <a href="tel:+46700000000">+4676 338 16 63</a>
       </div>
       <div class="contact-item">
         <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 2H3v16h5l4 4 4-4h5V2z"/></svg>
@@ -755,9 +793,8 @@
       </div>
     </div>
 
-    <!-- Form action points to Formspree — replace YOUR_FORM_ID with your real ID -->
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contact-form" aria-label="Contact form">
-      <input type="text" name="_gotcha" style="display:none" aria-hidden="true">
+    <!-- Form action points to Formspree — replace YOUR_FORM_ID -->
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contact-form">
       <div class="form-row">
         <div class="form-group">
           <label for="name">Name</label>
@@ -785,8 +822,7 @@
         <textarea id="message" name="message" placeholder="Tell me about your project — genre, number of tracks, deadlines, budget range..." required></textarea>
       </div>
       <button class="btn-submit" type="submit">Send message →</button>
-      <div class="form-success" id="form-success" role="status" aria-live="polite">Thanks — I'll be in touch soon!</div>
-      <div class="form-error" id="form-error" role="alert" style="display:none;color:var(--accent);">Submission failed — please try again.</div>
+      <div class="form-success" id="form-success">Thanks — I'll be in touch soon!</div>
     </form>
   </div>
 </section>
@@ -803,23 +839,15 @@
   </nav>
 </footer>
 
-</main>
-
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* Waveform canvas drawing (DPR-aware, responsive) */
+  /* Waveform canvas drawing */
   function drawWaveform(canvas, color, seed) {
-    if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const dpr = window.devicePixelRatio || 1;
-    const W = Math.max(200, Math.floor(canvas.clientWidth));
-    const H = Math.max(32, Math.floor(canvas.clientHeight));
-    canvas.width = Math.floor(W * dpr);
-    canvas.height = Math.floor(H * dpr);
-    canvas.style.width = W + 'px';
-    canvas.style.height = H + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const W = canvas.offsetWidth || 200;
+    const H = canvas.offsetHeight || 32;
+    canvas.width = W; canvas.height = H;
     ctx.clearRect(0, 0, W, H);
     const bars = Math.floor(W / 3);
     const rng = (s) => { let x = Math.sin(s) * 43758.5453; return x - Math.floor(x); };
@@ -834,14 +862,6 @@
     ctx.globalAlpha = 1;
   }
 
-  /* Observe and redraw on resize */
-  const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(entries => {
-    for (const entry of entries) {
-      const canvas = entry.target.querySelector('canvas');
-      if (canvas) drawWaveform(canvas, '#c8f542', 1);
-    }
-  }) : null;
-
   /* Init players */
   document.querySelectorAll('.audio-player').forEach((player, idx) => {
     const canvas = player.querySelector('canvas');
@@ -850,39 +870,27 @@
     const audio = player.querySelector('audio');
     let playing = false;
 
-    // Draw initial waveform
     setTimeout(() => drawWaveform(canvas, '#c8f542', idx * 99 + 1), 100);
-    if (ro) ro.observe(player);
-
-    // Determine if data-src is a playable audio file (simple extension check)
-    const src = (player.dataset && player.dataset.src) ? player.dataset.src.trim() : '';
-    const isAudioFile = /\.(mp3|m4a|wav|ogg|aac)$/i.test(src);
-    if (isAudioFile) {
-      audio.src = src;
-    } else {
-      // No direct audio available — disable playback button and show hint
-      btn.setAttribute('aria-disabled', 'true');
-      btn.disabled = true;
-      btn.title = 'Preview not available';
-    }
 
     btn.addEventListener('click', () => {
-      if (btn.getAttribute('aria-disabled') === 'true') return;
-      if (audio.src) {
-        if (audio.paused) { audio.play().catch(() => {}); playing = true; }
-        else { audio.pause(); playing = false; }
+      const src = player.dataset.src;
+      if (src && !audio.src) { audio.src = src; }
+      if (audio.src && audio.src !== window.location.href) {
+        playing ? audio.pause() : audio.play();
+        playing = !playing;
       } else {
-        // Demo mode fallback toggle icon
+        /* Demo: just toggle icon without real audio */
         playing = !playing;
       }
       btn.querySelector('svg').innerHTML = playing
         ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
         : '<polygon points="5,3 19,12 5,21"/>';
-      btn.setAttribute('aria-label', playing ? 'Pause preview' : 'Play preview');
+      if (!playing) btn.setAttribute('aria-label', 'Play preview');
+      else btn.setAttribute('aria-label', 'Pause preview');
     });
 
     audio.addEventListener('timeupdate', () => {
-      const s = Math.floor(audio.currentTime || 0);
+      const s = Math.floor(audio.currentTime);
       timeEl.textContent = Math.floor(s/60) + ':' + String(s%60).padStart(2,'0');
     });
     audio.addEventListener('ended', () => {
@@ -892,29 +900,17 @@
     });
   });
 
-  /* Contact form handling (graceful when placeholder form ID is present) */
+  /* Contact form */
   const form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', async (e) => {
-      if (form.action.includes('YOUR_FORM_ID')) {
-        // Demo mode — show a success message locally
-        e.preventDefault();
-        form.style.display = 'none';
-        document.getElementById('form-success').style.display = 'block';
-        return;
-      }
+      if (form.action.includes('YOUR_FORM_ID')) return; /* let demo submit fail gracefully */
       e.preventDefault();
       const data = new FormData(form);
-      try {
-        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (res.ok) {
-          form.style.display = 'none';
-          document.getElementById('form-success').style.display = 'block';
-        } else {
-          document.getElementById('form-error').style.display = 'block';
-        }
-      } catch (err) {
-        document.getElementById('form-error').style.display = 'block';
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
       }
     });
   }
