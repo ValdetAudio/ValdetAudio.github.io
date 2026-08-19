@@ -872,15 +872,25 @@
 
     setTimeout(() => drawWaveform(canvas, '#c8f542', idx * 99 + 1), 100);
 
-    btn.addEventListener('click', () => {
-      const src = player.dataset.src;
-      if (src && !audio.src) { audio.src = src; }
-      if (audio.src && audio.src !== window.location.href) {
-        playing ? audio.pause() : audio.play();
-        playing = !playing;
-      } else {
-        /* Demo: just toggle icon without real audio */
-        playing = !playing;
+   btn.addEventListener('click', () => {
+  const src = player.dataset.src;
+  if (src && !audio.src) { audio.src = src; }
+  if (audio.src && audio.src !== window.location.href) {
+    if (!playing) {
+      // Stop all other players first
+      document.querySelectorAll('.audio-player').forEach(other => {
+        if (other !== player) {
+          const otherAudio = other.querySelector('audio');
+          const otherBtn = other.querySelector('.play-btn');
+          otherAudio.pause();
+          otherBtn.querySelector('svg').innerHTML = '<polygon points="5,3 19,12 5,21"/>';
+          otherBtn.setAttribute('aria-label', 'Play preview');
+          other._playing = false;
+        }
+      });
+    }
+    playing ? audio.pause() : audio.play();
+    playing = !playing;
       }
       btn.querySelector('svg').innerHTML = playing
         ? '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>'
