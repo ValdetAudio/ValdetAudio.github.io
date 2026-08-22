@@ -19,7 +19,6 @@
     --text: #f0ede6;
     --muted: #b3b2b2;
     --accent: #ffffff;
-    --accent2: #fcf8f8;
     --serif: 'Inter', serif;
     --sans: 'Inter', sans-serif;
     --mono: 'Inter', monospace;
@@ -59,6 +58,7 @@
     color: var(--accent);
     text-decoration: none;
     text-transform: uppercase;
+    flex-shrink: 0;
   }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
@@ -82,6 +82,8 @@
     padding: 0.3rem 0.7rem;
     cursor: pointer;
     transition: color 0.2s, border-color 0.2s;
+    margin-left: 2rem;
+    flex-shrink: 0;
   }
   #lang-toggle:hover { color: var(--accent); border-color: rgba(255,255,255,0.7); }
 
@@ -99,11 +101,6 @@
     background-size: 150px;
     pointer-events: none;
   }
-  .hero-waveform {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 220px;
-    opacity: 0.8;
-  }
   .hero-tag {
     font-family: var(--serif);
     font-size: 0.75rem;
@@ -120,10 +117,7 @@
     max-width: 900px;
     margin-bottom: 2rem;
   }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
   .hero-sub {
     font-size: 1rem;
     color: var(--muted);
@@ -186,17 +180,8 @@
   }
   .service-card:last-child { border-right: none; }
   .service-card:hover { background: var(--bg3); }
-  .service-icon {
-    width: 40px; height: 40px;
-    margin-bottom: 1.25rem;
-    color: var(--accent);
-  }
-  .service-card h3 {
-    font-family: var(--serif);
-    font-size: 1.4rem;
-    font-weight: 400;
-    margin-bottom: 0.75rem;
-  }
+  .service-icon { width: 40px; height: 40px; margin-bottom: 1.25rem; color: var(--accent); }
+  .service-card h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; margin-bottom: 0.75rem; }
   .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
 
   /* PORTFOLIO */
@@ -230,18 +215,8 @@
     border: 1px solid rgba(200,245,66,0.3);
   }
   .project-body { padding: 1.25rem 1.5rem 1.5rem; }
-  .project-body h3 {
-    font-family: var(--serif);
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-bottom: 0.25rem;
-  }
-  .project-client {
-    font-size: 1rem; color: var(--muted);
-    font-family: var(--serif);
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-  }
+  .project-body h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; margin-bottom: 0.25rem; }
+  .project-client { font-size: 1rem; color: var(--muted); font-family: var(--serif); letter-spacing: 0.05em; margin-bottom: 1rem; }
   .project-desc { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; }
 
   /* AUDIO PLAYER */
@@ -261,15 +236,9 @@
   }
   .play-btn:hover { background: #0ce7f77b; }
   .play-btn svg { width: 12px; height: 12px; fill: #0d0d0d; }
-  .player-waveform {
-    flex: 1; height: 32px; cursor: pointer; position: relative;
-  }
+  .player-waveform { flex: 1; height: 32px; cursor: pointer; position: relative; }
   .player-waveform canvas { width: 100%; height: 100%; display: block; }
-  .player-time {
-    font-family: var(--mono); font-size: 0.7rem;
-    color: var(--muted); letter-spacing: 0.05em;
-    flex-shrink: 0;
-  }
+  .player-time { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.05em; flex-shrink: 0; }
   audio { display: none; }
 
   /* PROJECT LINKS */
@@ -301,27 +270,13 @@
   }
   .prices-card:last-child { border-right: none; }
   .prices-card:hover { background: var(--bg3); }
-  .prices-icon {
-    width: 40px; height: 40px;
-    margin-bottom: 1.25rem;
-    color: var(--accent);
-  }
-  .prices-card h3 {
-    font-family: var(--serif);
-    font-size: 1.4rem;
-    font-weight: 400;
-    margin-bottom: 0.75rem;
-  }
+  .prices-icon { width: 40px; height: 40px; margin-bottom: 1.25rem; color: var(--accent); }
+  .prices-card h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; margin-bottom: 0.75rem; }
   .prices-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
 
   /* ABOUT */
   #about { background: var(--bg2); }
-  .about-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
+  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
   .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 0.95rem; }
   .about-text p:first-of-type { color: var(--text); font-size: 1.05rem; }
   .skills-list { list-style: none; }
@@ -333,38 +288,21 @@
   }
   .skills-list li:last-child { border-bottom: none; }
   .skill-level { display: flex; gap: 4px; }
-  .skill-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--border-hover);
-  }
+  .skill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-hover); }
   .skill-dot.filled { background: var(--accent); }
 
   /* CONTACT */
   #contact { background: var(--bg2); }
-  .contact-inner {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
-    align-items: start;
-  }
+  .contact-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
   .contact-info p { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
-  .contact-item {
-    display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-  }
+  .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; font-size: 0.9rem; }
   .contact-item a { color: var(--text); text-decoration: none; }
   .contact-item a:hover { color: var(--accent); }
   .contact-icon { width: 20px; color: var(--accent); flex-shrink: 0; }
   .contact-form { display: flex; flex-direction: column; gap: 1rem; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-group label {
-    font-family: var(--mono); font-size: 0.7rem;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--muted);
-  }
+  .form-group label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
   .form-group input,
   .form-group textarea,
   .form-group select {
@@ -455,7 +393,7 @@
     <li><a href="#about" data-i18n="nav_about">About</a></li>
     <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
   </ul>
-   <button id="lang-toggle" onclick="toggleLang()">SV</button>
+  <button id="lang-toggle" onclick="toggleLang()">SV</button>
 </nav>
 
 <!-- HERO -->
@@ -584,7 +522,7 @@
     <!-- Project 4 -->
     <article class="project-card">
       <div class="project-cover">
-        <img src="https://f4.bcbits.com/img/a1904314141_1x1_700.avif" alt="God's In His Heaven single cover">
+        <img src="https://f4.bcbits.com/img/a1904314141_1x1_700.avif" alt="Gods In His Heaven single cover">
         <span class="project-cover-tag">Recording + Mix + Master</span>
       </div>
       <div class="project-body">
@@ -684,17 +622,17 @@
     <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contact-form">
       <div class="form-row">
         <div class="form-group">
-          <label for="name" data-i18n="form_name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" data-i18n-placeholder="form_name_placeholder" required />
+          <label for="fname" data-i18n="form_name">Name</label>
+          <input type="text" id="fname" name="name" placeholder="Your name" data-i18n-placeholder="form_name_placeholder" required />
         </div>
         <div class="form-group">
-          <label for="email" data-i18n="form_email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          <label for="femail" data-i18n="form_email">Email</label>
+          <input type="email" id="femail" name="email" placeholder="you@example.com" required />
         </div>
       </div>
       <div class="form-group">
-        <label for="service" data-i18n="form_service">Service</label>
-        <select id="service" name="service">
+        <label for="fservice" data-i18n="form_service">Service</label>
+        <select id="fservice" name="service">
           <option value="" data-i18n="form_service_default">— Select a service —</option>
           <option value="mixing" data-i18n="form_opt_mixing">Mixing</option>
           <option value="mastering" data-i18n="form_opt_mastering">Mastering</option>
@@ -705,8 +643,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="message" data-i18n="form_message">Message</label>
-        <textarea id="message" name="message" placeholder="Tell me about your project — genre, number of tracks, deadlines, budget range..." data-i18n-placeholder="form_message_placeholder" required></textarea>
+        <label for="fmessage" data-i18n="form_message">Message</label>
+        <textarea id="fmessage" name="message" placeholder="Tell me about your project — genre, number of tracks, deadlines, budget range..." data-i18n-placeholder="form_message_placeholder" required></textarea>
       </div>
       <button class="btn-submit" type="submit" data-i18n="form_submit">Send message →</button>
       <div class="form-success" id="form-success" data-i18n="form_success">Thanks — I'll be in touch soon!</div>
@@ -727,55 +665,58 @@
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* Waveform canvas drawing */
-  function drawWaveform(canvas, color, seed) {
-    const ctx = canvas.getContext('2d');
-    const W = canvas.offsetWidth || 200;
-    const H = canvas.offsetHeight || 32;
-    canvas.width = W; canvas.height = H;
-    ctx.clearRect(0, 0, W, H);
-    const bars = Math.floor(W / 3);
-    const rng = (s) => { let x = Math.sin(s) * 43758.5453; return x - Math.floor(x); };
-    ctx.fillStyle = color;
-    for (let i = 0; i < bars; i++) {
-      const h = 4 + rng(seed + i * 7.3) * (H - 8);
-      const x = i * 3;
-      const y = (H - h) / 2;
-      ctx.globalAlpha = 0.35 + rng(seed + i * 3.1) * 0.65;
-      ctx.fillRect(x, y, 2, h);
-    }
-    ctx.globalAlpha = 1;
+function drawWaveform(canvas, color, seed) {
+  var ctx = canvas.getContext('2d');
+  var W = canvas.offsetWidth || 200;
+  var H = canvas.offsetHeight || 32;
+  canvas.width = W;
+  canvas.height = H;
+  ctx.clearRect(0, 0, W, H);
+  var bars = Math.floor(W / 3);
+  function rng(s) {
+    var x = Math.sin(s) * 43758.5453;
+    return x - Math.floor(x);
   }
+  ctx.fillStyle = color;
+  for (var i = 0; i < bars; i++) {
+    var h = 4 + rng(seed + i * 7.3) * (H - 8);
+    var x = i * 3;
+    var y = (H - h) / 2;
+    ctx.globalAlpha = 0.35 + rng(seed + i * 3.1) * 0.65;
+    ctx.fillRect(x, y, 2, h);
+  }
+  ctx.globalAlpha = 1;
+}
 
-  /* Init players */
-  document.querySelectorAll('.audio-player').forEach((player, idx) => {
-    const canvas = player.querySelector('canvas');
-    const btn = player.querySelector('.play-btn');
-    const timeEl = player.querySelector('.player-time');
-    const audio = player.querySelector('audio');
-    let playing = false;
+var players = document.querySelectorAll('.audio-player');
+for (var p = 0; p < players.length; p++) {
+  (function(player, idx) {
+    var canvas = player.querySelector('canvas');
+    var btn = player.querySelector('.play-btn');
+    var timeEl = player.querySelector('.player-time');
+    var audio = player.querySelector('audio');
+    var playing = false;
 
-    setTimeout(() => drawWaveform(canvas, '#ffffff', idx * 99 + 1), 100);
+    setTimeout(function() { drawWaveform(canvas, '#ffffff', idx * 99 + 1); }, 100);
 
-    btn.addEventListener('click', () => {
-      const src = player.dataset.src;
+    btn.addEventListener('click', function() {
+      var src = player.getAttribute('data-src');
       if (src && !audio.src) { audio.src = src; }
       if (audio.src && audio.src !== window.location.href) {
         if (!playing) {
-          document.querySelectorAll('.audio-player').forEach(other => {
-            if (other !== player) {
-              const otherAudio = other.querySelector('audio');
-              const otherBtn = other.querySelector('.play-btn');
-              otherAudio.pause();
-              otherBtn.querySelector('svg').innerHTML = '<polygon points="5,3 19,12 5,21"/>';
-              otherBtn.setAttribute('aria-label', 'Play preview');
-              other._playing = false;
+          for (var j = 0; j < players.length; j++) {
+            if (players[j] !== player) {
+              var oAudio = players[j].querySelector('audio');
+              var oBtn = players[j].querySelector('.play-btn');
+              oAudio.pause();
+              oBtn.querySelector('svg').innerHTML = '<polygon points="5,3 19,12 5,21"/>';
+              oBtn.setAttribute('aria-label', 'Play preview');
             }
-          });
+          }
         }
-        playing ? audio.pause() : audio.play();
+        if (playing) { audio.pause(); } else { audio.play(); }
         playing = !playing;
       }
       btn.querySelector('svg').innerHTML = playing
@@ -784,177 +725,177 @@
       btn.setAttribute('aria-label', playing ? 'Pause preview' : 'Play preview');
     });
 
-    audio.addEventListener('timeupdate', () => {
-      const s = Math.floor(audio.currentTime);
-      timeEl.textContent = Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+    audio.addEventListener('timeupdate', function() {
+      var s = Math.floor(audio.currentTime);
+      timeEl.textContent = Math.floor(s / 60) + ':' + (s % 60 < 10 ? '0' : '') + (s % 60);
     });
-    audio.addEventListener('ended', () => {
+    audio.addEventListener('ended', function() {
       playing = false;
       btn.querySelector('svg').innerHTML = '<polygon points="5,3 19,12 5,21"/>';
       timeEl.textContent = '0:00';
     });
-  });
+  })(players[p], p);
+}
 
-  /* Contact form */
-  const form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      if (form.action.includes('YOUR_FORM_ID')) return;
-      e.preventDefault();
-      const data = new FormData(form);
-      const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+var form = document.getElementById('contact-form');
+if (form) {
+  form.addEventListener('submit', function(e) {
+    if (form.action.indexOf('YOUR_FORM_ID') !== -1) { return; }
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' }
+    }).then(function(res) {
       if (res.ok) {
         form.style.display = 'none';
         document.getElementById('form-success').style.display = 'block';
       }
     });
-  }
+  });
+}
 
-  /* =====================
-     LANGUAGE TOGGLE
-  ===================== */
-  const translations = {
-    en: {
-      nav_services:          "Services",
-      nav_work:              "Work",
-      nav_prices:            "Prices",
-      nav_about:             "About",
-      nav_contact:           "Contact",
-      hero_sub:              "Mixing, mastering and production for artists who care about how they sound. Based in Stockholm, working worldwide.",
-      hero_cta:              "Get in touch",
-      services_title:        "Services",
-      svc_mix_title:         "Mixing",
-      svc_mix_desc:          "Bringing your multi-track recordings to life. Balance, depth, clarity and emotion — every element in its place.",
-      svc_master_title:      "Mastering",
-      svc_master_desc:       "Final polish and loudness optimisation for streaming, vinyl, or CD. Consistent playback across all systems.",
-      svc_rec_title:         "Recording",
-      svc_rec_desc:          "Studio, live and rehearsal recording sessions with full technical support.",
-      svc_edit_title:        "Editing",
-      svc_edit_desc:         "Professional editing of audio material such as drums, vocals, podcasts and much more. High quality and fast turnaround.",
-      portfolio_title:       "Recent work",
-      proj1_desc:            "Full recording, mix and mastering for a 7-track mathcore/hardcore album. Heavy, dense and full of controlled noise.",
-      proj2_desc:            "Album mastering for a 6-track blackgaze album. CD and streaming delivery versions.",
-      proj3_desc:            "Drum engineering, bass engineering, drum editing as well as album mastering for a 6-track blackgaze album. Vinyl and streaming delivery versions.",
-      proj4_desc:            "Full recording, mix and mastering for a mathcore/hardcore single.",
-      prices_title:          "Prices",
-      price_mix_title:       "Mixing",
-      price_mix_desc:        "Prices start at 100 USD per song - may vary depending on the complexity of the song.",
-      price_edit_title:      "Editing",
-      price_edit_desc:       "Prices start at 50 USD per song - may vary depending on the kind of editing needed.",
-      price_master_title:    "Mastering",
-      price_master_desc:     "Prices start at 50 USD per song - with a discount for full albums.",
-      price_rec_title:       "Recording (only applicable in Sweden)",
-      price_rec_desc:        "200 SEK/hour (ex. VAT)",
-      about_title:           "About me",
-      about_p1:              "I'm Sebastian Wellin, an audio engineer, producer and songwriter based in Stockholm with over 10 years of experience working across genres — from indie and jazz to extreme metal and hardcore punk.",
-      about_p2:              "I got my audio engineering degree with first class honors from SAE Institute Stockholm and Middlesex University.",
-      about_p3:              "My studio has a high quality, professional recording rig that is completely mobile, meaning I can come to you to record! The only requirement is electricity. Combined with Pro Tools, a great selection of microphones and a growing collection of outboard and plugins. Remote work is fully supported — I deliver stems, sessions and revisions via WeTransfer or Dropbox.",
-      contact_title:         "Get in touch",
-      contact_sub:           "Tell me about your project and I'll get back to you within 24 hours with a quote or questions. All budgets considered.",
-      form_name:             "Name",
-      form_name_placeholder: "Your name",
-      form_email:            "Email",
-      form_service:          "Service",
-      form_service_default:  "— Select a service —",
-      form_opt_mixing:       "Mixing",
-      form_opt_mastering:    "Mastering",
-      form_opt_mix_master:   "Mixing + Mastering",
-      form_opt_production:   "Production",
-      form_opt_recording:    "Recording session",
-      form_opt_other:        "Other",
-      form_message:          "Message",
-      form_message_placeholder: "Tell me about your project — genre, number of tracks, deadlines, budget range...",
-      form_submit:           "Send message →",
-      form_success:          "Thanks — I'll be in touch soon!",
-      footer_top:            "Top",
-      footer_services:       "Services",
-      footer_work:           "Recent Work",
-      footer_prices:         "Prices",
-      footer_contact:        "Contact",
-    },
-    sv: {
-      nav_services:          "Tjänster",
-      nav_work:              "Arbeten",
-      nav_prices:            "Priser",
-      nav_about:             "Om mig",
-      nav_contact:           "Kontakt",
-      hero_sub:              "Mixing, mastering och produktion för artister som bryr sig om hur de låter. Baserad i Stockholm, arbetar globalt.",
-      hero_cta:              "Hör av dig",
-      services_title:        "Tjänster",
-      svc_mix_title:         "Mixing",
-      svc_mix_desc:          "Ger dina inspelningar liv. Balans, djup, klarhet och känsla — varje element på sin plats.",
-      svc_master_title:      "Mastering",
-      svc_master_desc:       "Slutlig polish och loudness-optimering för streaming, vinyl eller CD. Konsekvent uppspelning på alla system.",
-      svc_rec_title:         "Inspelning",
-      svc_rec_desc:          "Studio-, live- och repetitionsinspelningar med fullt tekniskt stöd.",
-      svc_edit_title:        "Redigering",
-      svc_edit_desc:         "Professionell redigering av ljudmaterial såsom trummor, sång, podcasts och mycket mer. Hög kvalitet och snabb leverans.",
-      portfolio_title:       "Senaste arbeten",
-      proj1_desc:            "Full inspelning, mix och mastering för ett 7-spårs mathcore/hardcore-album. Tungt, tätt och fullt av kontrollerat brus.",
-      proj2_desc:            "Album-mastering för ett 6-spårs blackgaze-album. CD- och streaming-versioner.",
-      proj3_desc:            "Truminspelning, basinspelning, trumredigering samt album-mastering för ett 6-spårs blackgaze-album. Vinyl- och streaming-versioner.",
-      proj4_desc:            "Full inspelning, mix och mastering för en mathcore/hardcore-singel.",
-      prices_title:          "Priser",
-      price_mix_title:       "Mixing",
-      price_mix_desc:        "Priser börjar på 100 USD per låt — kan variera beroende på låtens komplexitet.",
-      price_edit_title:      "Redigering",
-      price_edit_desc:       "Priser börjar på 50 USD per låt — kan variera beroende på vilken typ av redigering som behövs.",
-      price_master_title:    "Mastering",
-      price_master_desc:     "Priser börjar på 50 USD per låt — med rabatt för fullständiga album.",
-      price_rec_title:       "Inspelning (gäller endast i Sverige)",
-      price_rec_desc:        "200 kr/timme (ex. moms)",
-      about_title:           "Om mig",
-      about_p1:              "Jag är Sebastian Wellin, en ljudtekniker, producent och låtskrivare baserad i Stockholm med över 10 års erfarenhet av att arbeta inom olika genrer — från indie och jazz till extrem metal och hardcore punk.",
-      about_p2:              "Jag tog min examen i ljudteknik med högsta betyg från SAE Institute Stockholm och Middlesex University.",
-      about_p3:              "Mitt studio har en högkvalitativ, professionell inspelningsrigg som är helt mobil, vilket innebär att jag kan komma till dig för att spela in! Det enda kravet är el. Kombinerat med Pro Tools, ett fantastiskt urval av mikrofoner och en växande samling outboard och plugins. Distansarbete stöds fullt ut — jag levererar stems, sessioner och revisioner via WeTransfer eller Dropbox.",
-      contact_title:         "Kontakta mig",
-      contact_sub:           "Berätta om ditt projekt så hör jag av mig inom 24 timmar med en offert eller frågor. Alla budgetar välkomna.",
-      form_name:             "Namn",
-      form_name_placeholder: "Ditt namn",
-      form_email:            "E-post",
-      form_service:          "Tjänst",
-      form_service_default:  "— Välj en tjänst —",
-      form_opt_mixing:       "Mixing",
-      form_opt_mastering:    "Mastering",
-      form_opt_mix_master:   "Mixing + Mastering",
-      form_opt_production:   "Produktion",
-      form_opt_recording:    "Inspelningssession",
-      form_opt_other:        "Annat",
-      form_message:          "Meddelande",
-      form_message_placeholder: "Berätta om ditt projekt — genre, antal spår, deadline, budget...",
-      form_submit:           "Skicka →",
-      form_success:          "Tack — jag hör av mig snart!",
-      footer_top:            "Till toppen",
-      footer_services:       "Tjänster",
-      footer_work:           "Senaste arbeten",
-      footer_prices:         "Priser",
-      footer_contact:        "Kontakt",
+var translations = {
+  en: {
+    nav_services: "Services",
+    nav_work: "Work",
+    nav_prices: "Prices",
+    nav_about: "About",
+    nav_contact: "Contact",
+    hero_sub: "Mixing, mastering and production for artists who care about how they sound. Based in Stockholm, working worldwide.",
+    hero_cta: "Get in touch",
+    services_title: "Services",
+    svc_mix_title: "Mixing",
+    svc_mix_desc: "Bringing your multi-track recordings to life. Balance, depth, clarity and emotion — every element in its place.",
+    svc_master_title: "Mastering",
+    svc_master_desc: "Final polish and loudness optimisation for streaming, vinyl, or CD. Consistent playback across all systems.",
+    svc_rec_title: "Recording",
+    svc_rec_desc: "Studio, live and rehearsal recording sessions with full technical support.",
+    svc_edit_title: "Editing",
+    svc_edit_desc: "Professional editing of audio material such as drums, vocals, podcasts and much more. High quality and fast turnaround.",
+    portfolio_title: "Recent work",
+    proj1_desc: "Full recording, mix and mastering for a 7-track mathcore/hardcore album. Heavy, dense and full of controlled noise.",
+    proj2_desc: "Album mastering for a 6-track blackgaze album. CD and streaming delivery versions.",
+    proj3_desc: "Drum engineering, bass engineering, drum editing as well as album mastering for a 6-track blackgaze album. Vinyl and streaming delivery versions.",
+    proj4_desc: "Full recording, mix and mastering for a mathcore/hardcore single.",
+    prices_title: "Prices",
+    price_mix_title: "Mixing",
+    price_mix_desc: "Prices start at 100 USD per song - may vary depending on the complexity of the song.",
+    price_edit_title: "Editing",
+    price_edit_desc: "Prices start at 50 USD per song - may vary depending on the kind of editing needed.",
+    price_master_title: "Mastering",
+    price_master_desc: "Prices start at 50 USD per song - with a discount for full albums.",
+    price_rec_title: "Recording (only applicable in Sweden)",
+    price_rec_desc: "200 SEK/hour (ex. VAT)",
+    about_title: "About me",
+    about_p1: "I'm Sebastian Wellin, an audio engineer, producer and songwriter based in Stockholm with over 10 years of experience working across genres — from indie and jazz to extreme metal and hardcore punk.",
+    about_p2: "I got my audio engineering degree with first class honors from SAE Institute Stockholm and Middlesex University.",
+    about_p3: "My studio has a high quality, professional recording rig that is completely mobile, meaning I can come to you to record! The only requirement is electricity. Combined with Pro Tools, a great selection of microphones and a growing collection of outboard and plugins. Remote work is fully supported — I deliver stems, sessions and revisions via WeTransfer or Dropbox.",
+    contact_title: "Get in touch",
+    contact_sub: "Tell me about your project and I'll get back to you within 24 hours with a quote or questions. All budgets considered.",
+    form_name: "Name",
+    form_name_placeholder: "Your name",
+    form_email: "Email",
+    form_service: "Service",
+    form_service_default: "— Select a service —",
+    form_opt_mixing: "Mixing",
+    form_opt_mastering: "Mastering",
+    form_opt_mix_master: "Mixing + Mastering",
+    form_opt_production: "Production",
+    form_opt_recording: "Recording session",
+    form_opt_other: "Other",
+    form_message: "Message",
+    form_message_placeholder: "Tell me about your project — genre, number of tracks, deadlines, budget range...",
+    form_submit: "Send message",
+    form_success: "Thanks — I'll be in touch soon!",
+    footer_top: "Top",
+    footer_services: "Services",
+    footer_work: "Recent Work",
+    footer_prices: "Prices",
+    footer_contact: "Contact"
+  },
+  sv: {
+    nav_services: "Tjänster",
+    nav_work: "Arbeten",
+    nav_prices: "Priser",
+    nav_about: "Om mig",
+    nav_contact: "Kontakt",
+    hero_sub: "Mixing, mastering och produktion för artister som bryr sig om hur de låter. Baserad i Stockholm, arbetar globalt.",
+    hero_cta: "Hör av dig",
+    services_title: "Tjänster",
+    svc_mix_title: "Mixing",
+    svc_mix_desc: "Ger dina inspelningar liv. Balans, djup, klarhet och känsla — varje element på sin plats.",
+    svc_master_title: "Mastering",
+    svc_master_desc: "Slutlig polish och loudness-optimering för streaming, vinyl eller CD. Konsekvent uppspelning på alla system.",
+    svc_rec_title: "Inspelning",
+    svc_rec_desc: "Studio-, live- och repetitionsinspelningar med fullt tekniskt stöd.",
+    svc_edit_title: "Redigering",
+    svc_edit_desc: "Professionell redigering av ljudmaterial såsom trummor, sång, podcasts och mycket mer. Hög kvalitet och snabb leverans.",
+    portfolio_title: "Senaste arbeten",
+    proj1_desc: "Full inspelning, mix och mastering för ett 7-spårs mathcore/hardcore-album. Tungt, tätt och fullt av kontrollerat brus.",
+    proj2_desc: "Album-mastering för ett 6-spårs blackgaze-album. CD- och streaming-versioner.",
+    proj3_desc: "Truminspelning, basinspelning, trumredigering samt album-mastering för ett 6-spårs blackgaze-album. Vinyl- och streaming-versioner.",
+    proj4_desc: "Full inspelning, mix och mastering för en mathcore/hardcore-singel.",
+    prices_title: "Priser",
+    price_mix_title: "Mixing",
+    price_mix_desc: "Priser börjar på 100 USD per låt - kan variera beroende på låtens komplexitet.",
+    price_edit_title: "Redigering",
+    price_edit_desc: "Priser börjar på 50 USD per låt - kan variera beroende på vilken typ av redigering som behövs.",
+    price_master_title: "Mastering",
+    price_master_desc: "Priser börjar på 50 USD per låt - med rabatt för fullständiga album.",
+    price_rec_title: "Inspelning (gäller endast i Sverige)",
+    price_rec_desc: "200 kr/timme (ex. moms)",
+    about_title: "Om mig",
+    about_p1: "Jag är Sebastian Wellin, en ljudtekniker, producent och låtskrivare baserad i Stockholm med över 10 års erfarenhet av att arbeta inom olika genrer — från indie och jazz till extrem metal och hardcore punk.",
+    about_p2: "Jag tog min examen i ljudteknik med högsta betyg från SAE Institute Stockholm och Middlesex University.",
+    about_p3: "Mitt studio har en högkvalitativ, professionell inspelningsrigg som är helt mobil, vilket innebär att jag kan komma till dig för att spela in! Det enda kravet är el. Kombinerat med Pro Tools, ett fantastiskt urval av mikrofoner och en växande samling outboard och plugins. Distansarbete stöds fullt ut — jag levererar stems, sessioner och revisioner via WeTransfer eller Dropbox.",
+    contact_title: "Kontakta mig",
+    contact_sub: "Berätta om ditt projekt så hör jag av mig inom 24 timmar med en offert eller frågor. Alla budgetar välkomna.",
+    form_name: "Namn",
+    form_name_placeholder: "Ditt namn",
+    form_email: "E-post",
+    form_service: "Tjänst",
+    form_service_default: "— Välj en tjänst —",
+    form_opt_mixing: "Mixing",
+    form_opt_mastering: "Mastering",
+    form_opt_mix_master: "Mixing + Mastering",
+    form_opt_production: "Produktion",
+    form_opt_recording: "Inspelningssession",
+    form_opt_other: "Annat",
+    form_message: "Meddelande",
+    form_message_placeholder: "Berätta om ditt projekt — genre, antal spår, deadline, budget...",
+    form_submit: "Skicka",
+    form_success: "Tack — jag hör av mig snart!",
+    footer_top: "Till toppen",
+    footer_services: "Tjänster",
+    footer_work: "Senaste arbeten",
+    footer_prices: "Priser",
+    footer_contact: "Kontakt"
+  }
+};
+
+var currentLang = 'en';
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'sv' : 'en';
+  document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'SV' : 'EN';
+  document.documentElement.lang = currentLang;
+  var els = document.querySelectorAll('[data-i18n]');
+  for (var i = 0; i < els.length; i++) {
+    var key = els[i].getAttribute('data-i18n');
+    if (translations[currentLang][key] !== undefined) {
+      els[i].innerHTML = translations[currentLang][key];
     }
-  };
-
-  let currentLang = 'en';
-
-  function toggleLang() {
-    currentLang = currentLang === 'en' ? 'sv' : 'en';
-    document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'SV' : 'EN';
-    document.documentElement.lang = currentLang;
-
-    /* Update all text elements */
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (translations[currentLang][key] !== undefined) {
-        el.innerHTML = translations[currentLang][key];
-      }
-    });
-
-    /* Update placeholder attributes */
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      const key = el.getAttribute('data-i18n-placeholder');
-      if (translations[currentLang][key] !== undefined) {
-        el.setAttribute('placeholder', translations[currentLang][key]);
-      }
-    });
   }
+  var phs = document.querySelectorAll('[data-i18n-placeholder]');
+  for (var j = 0; j < phs.length; j++) {
+    var phKey = phs[j].getAttribute('data-i18n-placeholder');
+    if (translations[currentLang][phKey] !== undefined) {
+      phs[j].setAttribute('placeholder', translations[currentLang][phKey]);
+    }
+  }
+}
 </script>
 </body>
 </html>
