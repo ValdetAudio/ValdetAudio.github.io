@@ -665,7 +665,7 @@
     <a href="#prices" data-i18n="footer_prices">Prices</a>
     <a href="#shop" data-i18n="footer_shop">Shop</a>
     <a href="#contact" data-i18n="footer_contact">Contact</a>
-    <button id="lang-toggle" onclick="toggleLang()">SV</button>
+    <button id="lang-toggle" onclick="toggleLang()">SWE</button>
   </nav>
 </footer>
 
@@ -884,7 +884,7 @@ var currentLang = 'en';
 
 function toggleLang() {
   currentLang = currentLang === 'en' ? 'sv' : 'en';
-  document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'SV' : 'EN';
+  document.getElementById('lang-toggle').textContent = currentLang === 'en' ? 'SWE' : 'ENG';
   document.documentElement.lang = currentLang;
   var els = document.querySelectorAll('[data-i18n]');
   for (var i = 0; i < els.length; i++) {
