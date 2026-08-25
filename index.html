@@ -641,7 +641,7 @@
       </div>
     </div>
 
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contact-form">
+    <form class="contact-form" action="https://formspree.io/f/xkjwdznv" method="POST" id="contact-form">
       <div class="form-row">
         <div class="form-group">
           <label for="fname" data-i18n="form_name">Name</label>
@@ -764,7 +764,7 @@ for (var p = 0; p < players.length; p++) {
 var form = document.getElementById('contact-form');
 if (form) {
   form.addEventListener('submit', function(e) {
-    if (form.action.indexOf('YOUR_FORM_ID') !== -1) { return; }
+    if (form.action.indexOf('xkjwdznv') !== -1) { return; }
     e.preventDefault();
     var data = new FormData(form);
     fetch(form.action, {
